@@ -50,7 +50,7 @@ def get_robot_config(robot_name: str) -> RobotConfig:
         cfg = RobotConfig(mjcf_filename='hyqreal/hyqreal.xml', hip_height=0.5)
     elif 'luna' in name:
         cfg = RobotConfig(
-            mjcf_filename='luna/luna.xml',
+            mjcf_filename='luna/luna.mjcf',
             hip_height=0.3,
             leg_joints={
                 'FL': ['FL_shoulder_joint', 'FL_upper_leg_joint', 'FL_lower_leg_joint'],
@@ -58,7 +58,7 @@ def get_robot_config(robot_name: str) -> RobotConfig:
                 'RL': ['BL_shoulder_joint', 'BL_upper_leg_joint', 'BL_lower_leg_joint'],
                 'RR': ['BR_shoulder_joint', 'BR_upper_leg_joint', 'BR_lower_leg_joint'],
             },
-            feet_geom_names = {'FL': 'FL_lower_leg', 'FR': 'FR_lower_leg', 'RL': 'BL_lower_leg', 'RR': 'BR_lower_leg'},
+            feet_geom_names = {'FL': 'FL_lower_leg_collision', 'FR': 'FR_lower_leg_collision', 'RL': 'BL_lower_leg_collision', 'RR': 'BR_lower_leg_collision'},
             accel_name='imu',
             gyro_name='imu',
             imu_site_name='imu'
