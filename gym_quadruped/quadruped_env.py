@@ -381,7 +381,7 @@ class QuadrupedEnv(gym.Env):
             while np.any(contact_state.to_list()) and c < 5:
                 all_contacts = list(itertools.chain(*contacts.to_list()))
                 max_penetration_distance = np.max([np.abs(contact.dist) for contact in all_contacts])
-                self.mjData.qpos[2] += max_penetration_distance * 1.1  # must be larger 1.0
+                self.mjData.qpos[2] += max_penetration_distance * 1.01  # must be larger 1.0
                 mujoco.mj_step1(self.mjModel, self.mjData)
                 print(f"Robot height: {self.mjData.qpos[2]:.3f} m")
                 contact_state, contacts = self.feet_contact_state()
