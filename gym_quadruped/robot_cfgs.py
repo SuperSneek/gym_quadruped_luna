@@ -47,10 +47,10 @@ def get_robot_config(robot_name: str) -> RobotConfig:
     elif name == 'b2':
         cfg = RobotConfig(mjcf_filename='b2/b2.xml', hip_height=0.485)
     elif 'hyqreal' in name:
-        cfg = RobotConfig(mjcf_filename='hyqreal/hyqreal.xml', hip_height=0.5)
+        cfg = RobotConfig(mjcf_filename='hyqreal/hyqreal.xml', hip_height=0.3)
     elif 'luna' in name:
         cfg = RobotConfig(
-            mjcf_filename='luna/luna copy.mjcf',
+            mjcf_filename='luna/luna copy.mjcf.xml',
             hip_height=0.355,
             leg_joints={
                 'FL': ['FL_shoulder_joint', 'FL_upper_leg_joint', 'FL_lower_leg_joint'],
@@ -61,7 +61,7 @@ def get_robot_config(robot_name: str) -> RobotConfig:
             feet_geom_names = {'FL': 'FL_foot_coll', 'FR': 'FR_foot_coll', 'RL': 'BL_foot_coll', 'RR': 'BR_foot_coll'},
             accel_name='imu',
             gyro_name='imu',
-            imu_site_name='imu'
+            imu_site_name='imu',
         )
     else:
         raise ValueError(f'Unknown robot name: {robot_name}')

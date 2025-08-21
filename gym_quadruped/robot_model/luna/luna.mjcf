@@ -2,8 +2,8 @@
   <default>
     <default class="robot">
       <default class="motor">
-        <joint/>
-        <motor ctrlrange="-12.0 12.0"/>
+        <joint damping="0.6" armature="0.01" frictionloss="0.2"/>
+        <motor ctrlrange="-24.0 24.0"/>
       </default>
       <default class="visual">
         <geom material="visualgeom" contype="0" conaffinity="0" group="2" />
@@ -73,7 +73,8 @@
   <worldbody>
 
 
-    <body name="base_link" pos="0.00000000 0.00000000 0.1162502" quat="1 0 0 0" childclass="robot">
+    <body name="base_link" pos="0.00000000 0.00000000 0.3" quat="0.7071067811140325 0.7071067812590626 0.0 0.0"> childclass="robot">
+      <site name="imu" pos="0 0 0"/>
       <freejoint name="floating_base" />
       <body name="main_body" pos="0.0 0.0 0.0" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
         <body name="l_BATTERY_MOCKUP003" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
@@ -132,10 +133,10 @@
       </body>
       <body name="FL_shoulder_to_base" pos="0.142 -0.17 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
         <body name="FL_shoulder" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
-          <joint name="FL_shoulder_joint" type="hinge" ref="0.0" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 0 -1" />
+          <joint name="FL_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 -1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
           <geom name="FL_l_LUNA_SHOULDER_JOINT_ASM001_visual_0" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_schulter_luna004_w9mdzc.stl" size="1 1 -1" class="visual" />         <body name="FL_l_LUNA_UPPER_LEG_ASM" pos="0.04 0.0 0.05" quat="0.4999999999487241 -0.5000000000512759 0.5000000000512759 0.49999999994872407">
-            <joint name="FL_upper_leg_joint" type="hinge" ref="-0.4" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 1 0" />
+            <joint name="FL_upper_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="0 1 0" />
             <inertial pos="-0.0112269 -0.0324326 -0.072418" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" mass="0.22744829778611395" diaginertia="8.427858181667436e-05 0.00047287925978284676 0.0004518159194452576" />
             <geom name="FL_l_LUNA_UPPER_LEG_ASM_collision" pos="-0.000736336 -0.0309636 -0.07227" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" type="box" size="0.12766 0.0280000000000045 0.05039" class="collision" />
             <geom name="FL_l_LUNA_UPPER_LEG_ASM_visual_0" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_solid_y4u6ue.stl" size="1 1 -1" class="visual" />
@@ -143,10 +144,12 @@
             <geom name="FL_l_LUNA_UPPER_LEG_ASM_visual_2" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw004_x135va.stl" size="1 1 -1" class="visual" />
             <geom name="FL_l_LUNA_UPPER_LEG_ASM_visual_3" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_oberschenkel_deckel_rme7b3.stl" size="1 1 -1" class="visual" />
             <body name="FL_lower_leg" pos="0.02 0.0 -0.2" quat="-1.4503002513292787e-10 0.7071067811140325 0.7071067812590626 -1.4503002516267403e-10">
-              <joint name="FL_lower_leg_joint" type="hinge" ref="-0.8" class="motor" range="-3.141592653589793 3.141592653589793" axis="-1 0 0 " />
+              <joint name="FL_lower_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="-1 0 0 " />
               <inertial pos="0.005 0.0 -0.0781594" quat="1.0 0.0 0.0 0.0" mass="0.0801992588761483" diaginertia="0.0002987842676361 0.0002927989540089 7.3219691818e-06" />
-              <geom name="FL_lower_leg_collision" pos="0.005 0.0 0.1199659" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
-              <geom name="FL_lower_leg_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="luna_leg_placeholder.stl" size="1 1 -1" class="visual" />
+              <geom name="FL_lower_leg_collision" pos="0.005 0.0 0.1" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
+              <body name="FL_foot" pos="0.005 0.0 0.2">
+                <geom name="FL_foot_coll" type="sphere" size="0.02" class="collision"/>
+              </body>
             </body>
             <body name="FL_l_Cybergear_upper_leg" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
               <inertial pos="0.000367633 -0.0720141 0.000118456" quat="1.0 0.0 0.0 0.0" mass="0.31390229078502988" diaginertia="4.560349035529633e-05 7.68401267724726e-05 4.68364298064408e-05" />
@@ -157,23 +160,26 @@
       </body>
       <body name="BL_shoulder_to_base" pos="0.115 0.35 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
         <body name="BL_shoulder" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
-          <joint name="BL_shoulder_joint" type="hinge" ref="0.0" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 0 1" />
+          <joint name="BL_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
           <geom name="BL_l_LUNA_SHOULDER_JOINT_ASM001_visual_0" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_schulter_luna004_w9mdzc.stl" size="-1 1 -1" class="visual" />
           <geom name="BL_l_LUNA_SHOULDER_JOINT_ASM001_visual_2" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw003_tzzudj.stl" class="visual" />
           <body name="BL_l_LUNA_UPPER_LEG_ASM" pos="0.04 0.0 0.05" quat="0.4999999999487241 -0.5000000000512759 0.5000000000512759 0.49999999994872407">
-            <joint name="BL_upper_leg_joint" type="hinge" ref="-0.4" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 1 0" />
+            <joint name="BL_upper_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="0 1 0" />
             <inertial pos="-0.0112269 -0.0324326 -0.072418" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" mass="0.22744829778611395" diaginertia="8.427858181667436e-05 0.00047287925978284676 0.0004518159194452576" />
             <geom name="BL_l_LUNA_UPPER_LEG_ASM_collision" pos="-0.000736336 -0.0309636 -0.07227" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" type="box" size="0.12766 0.0280000000000045 0.05039" class="collision" />
-            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_0" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_solid_y4u6ue.stl" size="1 1 -1" class="visual" />
-            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_1" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_shell_rfigsq.stl" size="1 1 -1" class="visual" />
-            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_2" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw004_x135va.stl" size="1 1 -1" class="visual" />
-            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_3" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_oberschenkel_deckel_rme7b3.stl" size="1 1 -1" class="visual" />
+            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_0" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_solid_y4u6ue.stl" size="1 1 1" class="visual" />
+            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_1" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_shell_rfigsq.stl" size="1 1 1" class="visual" />
+            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_2" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw004_x135va.stl" size="1 1 1" class="visual" />
+            <geom name="BL_l_LUNA_UPPER_LEG_ASM_visual_3" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_oberschenkel_deckel_rme7b3.stl" size="1 1 1" class="visual" />
             <body name="BL_lower_leg" pos="0.02 0.0 -0.2" quat="-1.4503002513292787e-10 0.7071067811140325 0.7071067812590626 -1.4503002516267403e-10">
-              <joint name="BL_lower_leg_joint" type="hinge" ref="-0.8" class="motor" range="-3.141592653589793 3.141592653589793" axis="-1 0 0 " />
+              <joint name="BL_lower_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="-1 0 0 " />
               <inertial pos="0.005 0.0 -0.0781594" quat="1.0 0.0 0.0 0.0" mass="0.0801992588761483" diaginertia="0.0002987842676361 0.0002927989540089 7.3219691818e-06" />
-              <geom name="BL_lower_leg_collision" pos="0.005 0.0 0.1199659" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
-              <geom name="BL_lower_leg_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="luna_leg_placeholder.stl" size="1 1 -1" class="visual" />
+              <geom name="BL_lower_leg_collision" pos="0.005 0.0 0.1" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
+              <body name="BL_foot" pos="0.005 0.0 0.2">
+                <geom name="BL_foot_coll" type="sphere" size="0.02" class="collision"/>
+              </body>
+            
             </body>
             <body name="BL_l_Cybergear_upper_leg" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
               <inertial pos="0.000367633 -0.0720141 0.000118456" quat="1.0 0.0 0.0 0.0" mass="0.31390229078502988" diaginertia="4.560349035529633e-05 7.68401267724726e-05 4.68364298064408e-05" />
@@ -184,12 +190,12 @@
       </body>
       <body name="FR_shoulder_to_base" pos="-0.142 -0.17 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
         <body name="FR_shoulder" pos="0 0 0" quat="-2.0510342851533115e-10 -0.0 0.0 1.0">
-          <joint name="FR_shoulder_joint" type="hinge" ref="0.0" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 0 -1" />
+          <joint name="FR_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 -1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
           <geom name="FR_l_LUNA_SHOULDER_JOINT_ASM001_visual_0" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_schulter_luna004_w9mdzc.stl" size="1 1 -1" class="visual" />
           <geom name="FR_l_LUNA_SHOULDER_JOINT_ASM001_visual_2" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw003_tzzudj.stl" class="visual" />
           <body name="FR_l_LUNA_UPPER_LEG_ASM" pos="0.04 0.0 0.05" quat="0.4999999999487241 0.5000000000512759 -0.5000000000512759 0.49999999994872407">
-            <joint name="FR_upper_leg_joint" type="hinge" ref="0.4" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 1 0" />
+            <joint name="FR_upper_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="0 -1 0" />
             <inertial pos="-0.0112269 -0.0324326 -0.072418" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" mass="0.22744829778611395" diaginertia="8.427858181667436e-05 0.00047287925978284676 0.0004518159194452576" />
             <geom name="FR_l_LUNA_UPPER_LEG_ASM_collision" pos="-0.000736336 -0.0309636 -0.07227" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" type="box" size="0.12766 0.0280000000000045 0.05039" class="collision" />
             <geom name="FR_l_LUNA_UPPER_LEG_ASM_visual_0" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_solid_y4u6ue.stl" size="1 1 1" class="visual" />
@@ -197,10 +203,12 @@
             <geom name="FR_l_LUNA_UPPER_LEG_ASM_visual_2" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw004_x135va.stl" size="1 1 1" class="visual" />
             <geom name="FR_l_LUNA_UPPER_LEG_ASM_visual_3" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_oberschenkel_deckel_rme7b3.stl" size="1 1 1" class="visual" />
             <body name="FR_lower_leg" pos="-0.02 0.0 -0.2" quat="0.7071067811140325 0.0 0.0 0.7071067812590626">
-              <joint name="FR_lower_leg_joint" type="hinge" ref="0.8" class="motor" range="-3.141592653589793 3.141592653589793" axis="-1 0 0 " />
+              <joint name="FR_lower_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="1 0 0 " />
               <inertial pos="0.005 0.0 -0.0781594" quat="1.0 0.0 0.0 0.0" mass="0.0801992588761483" diaginertia="0.0002987842676361 0.0002927989540089 7.3219691818e-06" />
-              <geom name="FR_lower_leg_collision" pos="0.005 0.0 -0.1199659" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
-              <geom name="FR_lower_leg_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="luna_leg_placeholder.stl" size="1 1 1" class="visual" />
+              <geom name="FR_lower_leg_collision" pos="0.005 0.0 -0.1" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
+              <body name="FR_foot" pos="0.005 0.0 -0.2">
+                <geom name="FR_foot_coll" type="sphere" size="0.02" class="collision"/>
+              </body>
             </body>
             <body name="FR_l_Cybergear_upper_leg" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
               <inertial pos="0.000367633 -0.0720141 0.000118456" quat="1.0 0.0 0.0 0.0" mass="0.31390229078502988" diaginertia="4.560349035529633e-05 7.68401267724726e-05 4.68364298064408e-05" />
@@ -211,12 +219,12 @@
       </body>
       <body name="BR_shoulder_to_base" pos="-0.115 0.35 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
         <body name="BR_shoulder" pos="0 0 0" quat="-2.0510342851533115e-10 -0.0 0.0 1.0">
-          <joint name="BR_shoulder_joint" type="hinge" ref="0.0" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 0 1" />
+          <joint name="BR_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
           <geom name="BR_l_LUNA_SHOULDER_JOINT_ASM001_visual_0" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_schulter_luna004_w9mdzc.stl" size="-1 1 -1" class="visual" />
           <geom name="BR_l_LUNA_SHOULDER_JOINT_ASM001_visual_2" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw003_tzzudj.stl" class="visual" />
           <body name="BR_l_LUNA_UPPER_LEG_ASM" pos="0.04 0.0 0.05" quat="0.4999999999487241 0.5000000000512759 -0.5000000000512759 0.49999999994872407">
-            <joint name="BR_upper_leg_joint" type="hinge" ref="0.4" class="motor" range="-3.141592653589793 3.141592653589793" axis="0 1 0" />
+            <joint name="BR_upper_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="0 -1 0" />
             <inertial pos="-0.0112269 -0.0324326 -0.072418" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" mass="0.22744829778611395" diaginertia="8.427858181667436e-05 0.00047287925978284676 0.0004518159194452576" />
             <geom name="BR_l_LUNA_UPPER_LEG_ASM_collision" pos="-0.000736336 -0.0309636 -0.07227" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" type="box" size="0.12766 0.0280000000000045 0.05039" class="collision" />
             <geom name="BR_l_LUNA_UPPER_LEG_ASM_visual_0" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_solid_y4u6ue.stl" size="1 1 1" class="visual" />
@@ -224,10 +232,12 @@
             <geom name="BR_l_LUNA_UPPER_LEG_ASM_visual_2" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_cybergearmotor_sw004_x135va.stl" size="1 1 1" class="visual" />
             <geom name="BR_l_LUNA_UPPER_LEG_ASM_visual_3" pos="-0.000126336 3.63695e-05 0.003" quat="0.7071067811865477 0.0 -0.7071067811865474 0.0" material="default_material" type="mesh" mesh="unnamed_oberschenkel_deckel_rme7b3.stl" size="1 1 1" class="visual" />
             <body name="BR_lower_leg" pos="-0.02 0.0 -0.2" quat="0.7071067811140325 0.0 0.0 0.7071067812590626">
-              <joint name="BR_lower_leg_joint" type="hinge" ref="0.8" class="motor" range="-3.141592653589793 3.141592653589793" axis="-1 0 0 " />
+              <joint name="BR_lower_leg_joint" type="hinge" ref="0" class="motor" range="-1.641592653589793 1.641592653589793" axis="1 0 0 " />
               <inertial pos="0.005 0.0 -0.0781594" quat="1.0 0.0 0.0 0.0" mass="0.0801992588761483" diaginertia="0.0002987842676361 0.0002927989540089 7.3219691818e-06" />
-              <geom name="BR_lower_leg_collision" pos="0.005 0.0 -0.1199659" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
-              <geom name="BR_lower_leg_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="luna_leg_placeholder.stl" size="1 1 1" class="visual" />
+              <geom name="BR_lower_leg_collision" pos="0.005 0.0 -0.1" quat="1.0 0.0 0.0 0.0" type="box" size="0.005 0.0199369631996926 0.0796591236912465" class="collision" />
+              <body name="BR_foot" pos="0.005 0.0 -0.2">
+                <geom name="BR_foot_coll" type="sphere" size="0.02" class="collision"/>
+              </body>
             </body>
             <body name="BR_l_Cybergear_upper_leg" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
               <inertial pos="0.000367633 -0.0720141 0.000118456" quat="1.0 0.0 0.0 0.0" mass="0.31390229078502988" diaginertia="4.560349035529633e-05 7.68401267724726e-05 4.68364298064408e-05" />
@@ -273,7 +283,7 @@
   </sensor>
 
   <keyframe>
-    <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+    <key name="home" qpos="0 0 0.27 1 0 0 0.5 0 0.5 0.9 0 0.5 0.9 0 0.5 0.9 0 0.5 0.9" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"/>
   </keyframe>
 
 </mujoco>

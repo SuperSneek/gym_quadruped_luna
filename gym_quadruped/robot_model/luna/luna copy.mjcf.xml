@@ -3,7 +3,7 @@
     <default class="robot">
       <default class="motor">
         <joint damping="0.6" armature="0.01" frictionloss="0.2"/>
-        <motor ctrlrange="-24.0 24.0"/>
+        <motor ctrlrange="-12.0 12.0"/>
       </default>
       <default class="visual">
         <geom material="visualgeom" contype="0" conaffinity="0" group="2" />
@@ -73,10 +73,10 @@
   <worldbody>
 
 
-    <body name="base_link" pos="0.00000000 0.00000000 0.3" quat="0.7071067811140325 0.7071067812590626 0.0 0.0"> childclass="robot">
+    <body name="base_link" pos="0.00000000 0.00000000 0.3" childclass="robot">
       <site name="imu" pos="0 0 0"/>
       <freejoint name="floating_base" />
-      <body name="main_body" pos="0.0 0.0 0.0" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
+      <body name="main_body" pos="0.0 0.0 0.0" quat="0.5 0.5 0.5 0.5">
         <body name="l_BATTERY_MOCKUP003" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
           <inertial pos="0.1 -0.0275 -0.08" quat="1.0 0.0 0.0 0.0" mass="0.8" diaginertia="0.001909583722 0.001874418605 0.000368406977" />
           <geom name="l_BATTERY_MOCKUP003_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="luna_urdf_ros_battery_mockup001_zgrxpo.stl" class="visual" />
@@ -131,7 +131,7 @@
           <geom name="l_BATTERY_MOCKUP002_visual" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh" mesh="luna_urdf_ros_battery_mockup_xgvtf3.stl" class="visual" />
         </body>
       </body>
-      <body name="FL_shoulder_to_base" pos="0.142 -0.17 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
+      <body name="FL_shoulder_to_base" pos="-0.17 0.142 0.018" quat="0.5 0.5 0.5 0.5">
         <body name="FL_shoulder" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
           <joint name="FL_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 -1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
@@ -158,7 +158,7 @@
           </body>
         </body>
       </body>
-      <body name="BL_shoulder_to_base" pos="0.115 0.35 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
+      <body name="BL_shoulder_to_base" pos="0.35 0.115 0.018" quat="0.5 0.5 0.5 0.5">
         <body name="BL_shoulder" pos="0 0 0" quat="1.0 0.0 0.0 0.0">
           <joint name="BL_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
@@ -188,8 +188,8 @@
           </body>
         </body>
       </body>
-      <body name="FR_shoulder_to_base" pos="-0.142 -0.17 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
-        <body name="FR_shoulder" pos="0 0 0" quat="-2.0510342851533115e-10 -0.0 0.0 1.0">
+      <body name="FR_shoulder_to_base" pos="-0.17 -0.142 0.018" quat="0.5 0.5 0.5 0.5">
+        <body name="FR_shoulder" pos="0 0 0" quat="0.0 -1.0 0.0 0.0">
           <joint name="FR_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 -1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
           <geom name="FR_l_LUNA_SHOULDER_JOINT_ASM001_visual_0" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_schulter_luna004_w9mdzc.stl" size="1 1 -1" class="visual" />
@@ -217,8 +217,8 @@
           </body>
         </body>
       </body>
-      <body name="BR_shoulder_to_base" pos="-0.115 0.35 0.018" quat="0.7071067811140325 0.7071067812590626 0.0 0.0">
-        <body name="BR_shoulder" pos="0 0 0" quat="-2.0510342851533115e-10 -0.0 0.0 1.0">
+      <body name="BR_shoulder_to_base" pos="0.35 -0.115 0.018" quat="0.5 0.5 0.5 0.5">
+        <body name="BR_shoulder" pos="0 0 0" quat="0.0 -1.0 0.0 0.0">
           <joint name="BR_shoulder_joint" type="hinge" ref="0" class="motor" range="-0.341592653589793 0.341592653589793" axis="0 0 1" />
           <inertial pos="0.0239541 1.32614e-05 0.0573496" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" mass="0.29606928064225085" diaginertia="0.00020649930783863573 0.000423514416921427 0.000361865637965086" />
           <geom name="BR_l_LUNA_SHOULDER_JOINT_ASM001_visual_0" pos="0.039 0.0 0.05743" quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" material="default_material" type="mesh" mesh="unnamed_schulter_luna004_w9mdzc.stl" size="-1 1 -1" class="visual" />
