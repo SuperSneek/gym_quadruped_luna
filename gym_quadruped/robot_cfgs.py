@@ -50,15 +50,15 @@ def get_robot_config(robot_name: str) -> RobotConfig:
         cfg = RobotConfig(mjcf_filename='hyqreal/hyqreal.xml', hip_height=0.3)
     elif 'luna' in name:
         cfg = RobotConfig(
-            mjcf_filename='luna/luna copy.mjcf.xml',
-            hip_height=0.355,
+            mjcf_filename='luna/luna.xml',
+            hip_height=0.3,
             leg_joints={
-                'FL': ['FL_shoulder_joint', 'FL_upper_leg_joint', 'FL_lower_leg_joint'],
-                'FR': ['FR_shoulder_joint', 'FR_upper_leg_joint', 'FR_lower_leg_joint'],
-                'RL': ['BL_shoulder_joint', 'BL_upper_leg_joint', 'BL_lower_leg_joint'],
-                'RR': ['BR_shoulder_joint', 'BR_upper_leg_joint', 'BR_lower_leg_joint'],
+                'FL': ['FL_shoulder_joint', 'FL_thigh_joint', 'FL_calf_joint'],
+                'FR': ['FR_shoulder_joint', 'FR_thigh_joint', 'FR_calf_joint'],
+                'RL': ['BL_shoulder_joint', 'BL_thigh_joint', 'BL_calf_joint'],
+                'RR': ['BR_shoulder_joint', 'BR_thigh_joint', 'BR_calf_joint'],
             },
-            feet_geom_names = {'FL': 'FL_foot_coll', 'FR': 'FR_foot_coll', 'RL': 'BL_foot_coll', 'RR': 'BR_foot_coll'},
+            feet_geom_names = {'FL': 'FL_foot_collision', 'FR': 'FR_foot_collision', 'RL': 'BL_foot_collision', 'RR': 'BR_foot_collision'},
             accel_name='imu',
             gyro_name='imu',
             imu_site_name='imu',
