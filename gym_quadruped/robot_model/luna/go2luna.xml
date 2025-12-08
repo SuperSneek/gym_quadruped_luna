@@ -20,11 +20,10 @@
                 </default>
             </default>
             <default class="knee">
-                <joint range="-2.7227 -0.83776"/>
-                <motor ctrlrange="-12 12"/>
+                <joint range="-2.7227 -0.83776" ref="1.3"/>
             </default>
             <default class="knee_mirrored">
-                <joint range="0.83776 2.7227"/>
+                <joint range="0.83776 2.7227" ref="-1.3"/>
                 <motor ctrlrange="-12 12"/>
             </default>
             <default class="visual">
