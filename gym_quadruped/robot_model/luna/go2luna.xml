@@ -78,7 +78,7 @@
 
     <worldbody>
         <body name="base_link" pos="0 0 0.445" childclass="go2">
-            <inertial pos="-0.02 0 0" quat="-0.000543471 0.713435 -0.00173769 0.700719" mass="3.921"
+            <inertial pos="0.02 0 0" quat="-0.000543471 0.713435 -0.00173769 0.700719" mass="3.921"
                       diaginertia="0.107027 0.0980771 0.0244531"/>
             <freejoint/>
             <geom mesh="main_body.stl" pos="0.05 0 0" quat="-0.5 -0.5 -0.5 -0.5" material="gray" class="visual"/>
