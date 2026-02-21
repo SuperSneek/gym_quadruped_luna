@@ -12,12 +12,19 @@
                 <joint axis="1 0 0" range="-1.0472 1.0472"/>
             </default>
             <default class="hip">
-                <default class="shoulder">
+                <default class="shoulder_mirrored">
                     <joint range="-1.5708 3.4907"/>
+                </default>
+                <default class="shoulder">
+                    <joint range="-3.4907 1.5708"/>
                 </default>
             </default>
             <default class="knee">
                 <joint range="-2.7227 -0.83776"/>
+                <motor ctrlrange="-12 12"/>
+            </default>
+            <default class="knee_mirrored">
+                <joint range="0.83776 2.7227"/>
                 <motor ctrlrange="-12 12"/>
             </default>
             <default class="visual">
@@ -71,7 +78,7 @@
 
     <worldbody>
         <body name="base_link" pos="0 0 0.445" childclass="go2">
-            <inertial pos="-0.02 0 0" quat="-0.000543471 0.713435 -0.00173769 0.700719" mass="3.921"
+            <inertial pos="0.0 0 0" quat="-0.000543471 0.713435 -0.00173769 0.700719" mass="3.921"
                       diaginertia="0.107027 0.0980771 0.0244531"/>
             <freejoint/>
             <geom mesh="main_body.stl" pos="0.05 0 0" quat="-0.5 -0.5 -0.5 -0.5" material="gray" class="visual"/>
@@ -79,18 +86,18 @@
             <geom size="0.1881 0.04675 0.057" type="box" class="collision"/>
             <geom size="0.05 0.045" pos="0.285 0 0.01" type="cylinder" class="collision"/>
             <geom size="0.047" pos="0.293 0 -0.06" class="collision"/>
-            <site name="imu" pos="-0.0 0 0.0"/>
+            <site name="imu" pos="-0.02557 0 0.04232"/>
             <body name="FL_shoulder" pos="0.27 0.1 0">
                 <inertial pos="-0.0054 0.00194 -0.000105" quat="0.497014 0.499245 0.505462 0.498237" mass="0.678"
                           diaginertia="0.00088403 0.000596003 0.000479967"/>
-                <joint name="FL_shoulder_joint" class="abduction" axis="1 0 0"/>
+                <joint name="FL_shoulder_joint" class="abduction" axis="-1 0 0"/>
                 <geom mesh="hip_0" material="metal" class="visual"/>
                 <geom mesh="hip_1" material="gray" class="visual"/>
                 <geom size="0.046 0.02" pos="0 0.08 0" quat="1 1 0 0" type="cylinder" class="collision"/>
                 <body name="FL_thigh" pos="0 0.0955 0">
                     <inertial pos="-0.00374 -0.0223 -0.0327" quat="0.829533 0.0847635 -0.0200632 0.551623" mass="1.152"
                               diaginertia="0.00594973 0.00584149 0.000878787"/>
-                    <joint name="FL_thigh_joint" class="shoulder" axis="0 1 0"/>
+                    <joint name="FL_thigh_joint" class="shoulder_mirrored" axis="0 -1 0"/>
                     <geom mesh="thigh_0" material="metal" class="visual"/>
                     <geom mesh="thigh_1" material="gray" class="visual"/>
                     <geom size="0.1065 0.01225 0.017" pos="0 0 -0.1065" quat="0.707107 0 0.707107 0" type="box"
@@ -114,7 +121,7 @@
             <body name="FR_shoulder" pos="0.27 -0.1 0">
                 <inertial pos="-0.0054 -0.00194 -0.000105" quat="0.498237 0.505462 0.499245 0.497014" mass="0.678"
                           diaginertia="0.00088403 0.000596003 0.000479967"/>
-                <joint name="FR_shoulder_joint" class="abduction" axis="1 0 0"/>
+                <joint name="FR_shoulder_joint" class="abduction" axis="-1 0 0"/>
                 <geom mesh="hip_0" material="metal" class="visual" quat="4.63268e-05 1 0 0"/>
                 <geom mesh="hip_1" material="gray" class="visual" quat="4.63268e-05 1 0 0"/>
                 <geom size="0.046 0.02" pos="0 -0.08 0" quat="0.707107 0.707107 0 0" type="cylinder" class="collision"/>
@@ -129,7 +136,7 @@
                     <body name="FR_calf" pos="0 0 -0.213">
                         <inertial pos="0.00629595 0.000622121 -0.141417" quat="0.703508 -0.00450087 0.00154099 0.710672"
                                   mass="0.241352" diaginertia="0.0014901 0.00146356 5.31397e-05"/>
-                        <joint name="FR_calf_joint" class="knee" axis="0 1 0"/>
+                        <joint name="FR_calf_joint" class="knee_mirrored" axis="0 -1 0"/>
                         <geom mesh="calf_mirror_0" material="gray" class="visual"/>
                         <geom mesh="calf_mirror_1" material="black" class="visual"/>
                         <geom size="0.013 0.06" pos="0.01 0 -0.06" quat="0.995004 0 -0.0998334 0" type="cylinder"
@@ -151,7 +158,7 @@
                 <body name="BL_thigh" pos="0 0.0955 0">
                     <inertial pos="-0.00374 -0.0223 -0.0327" quat="0.829533 0.0847635 -0.0200632 0.551623" mass="1.152"
                               diaginertia="0.00594973 0.00584149 0.000878787"/>
-                    <joint name="BL_thigh_joint" class="shoulder" axis="0 1 0"/>
+                    <joint name="BL_thigh_joint" class="shoulder_mirrored" axis="0 -1 0"/>
                     <geom mesh="thigh_0" material="metal" class="visual"/>
                     <geom mesh="thigh_1" material="gray" class="visual"/>
                     <geom size="0.1065 0.01225 0.017" pos="0 0 -0.1065" quat="0.707107 0 0.707107 0" type="box"
@@ -190,7 +197,7 @@
                     <body name="BR_calf" pos="0 0 -0.213">
                         <inertial pos="0.00629595 0.000622121 -0.141417" quat="0.703508 -0.00450087 0.00154099 0.710672"
                                   mass="0.241352" diaginertia="0.0014901 0.00146356 5.31397e-05"/>
-                        <joint name="BR_calf_joint" class="knee" axis="0 1 0"/>
+                        <joint name="BR_calf_joint" class="knee_mirrored" axis="0 -1 0"/>
                         <geom mesh="calf_mirror_0" material="gray" class="visual"/>
                         <geom mesh="calf_mirror_1" material="black" class="visual"/>
                         <geom size="0.013 0.06" pos="0.01 0 -0.06" quat="0.995004 0 -0.0998334 0" type="cylinder"
@@ -221,7 +228,7 @@
     </actuator>
 
     <keyframe>
-        <key name="home" qpos="0 0 0.27 1 0 0 0 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"
+        <key name="home" qpos="0 0 0.27 1 0 0 0 0 -1.57 -2.72 0 1.57 2.72 0 -1.57 -2.72 0 1.57 2.72"
              ctrl="0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8 0 0.9 -1.8"/>
     </keyframe>
 </mujoco>
