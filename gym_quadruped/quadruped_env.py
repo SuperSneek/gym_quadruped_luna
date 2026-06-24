@@ -896,7 +896,7 @@ class QuadrupedEnv(gym.Env):
     def legs_mass_matrix(self):
         """Get the mass matrix of the legs."""
         mass_matrix = np.zeros((self.mjModel.nv, self.mjModel.nv))
-        mujoco.mj_fullM(self.mjModel, mass_matrix, self.mjData.qM)
+        mujoco.mj_fullM(self.mjModel, self.mjData, mass_matrix)
         # Get the mass matrix of the legs
         legs_mass_matrix = LegsAttr(
             FL=mass_matrix[np.ix_(self.legs_qvel_idx.FL, self.legs_qvel_idx.FL)],

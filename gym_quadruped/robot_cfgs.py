@@ -51,7 +51,7 @@ def get_robot_config(robot_name: str) -> RobotConfig:
     elif 'luna' in name:
         cfg = RobotConfig(
             mjcf_filename='luna/go2luna.xml',
-            hip_height=0.3,
+            hip_height=0.2,
             leg_joints={
                 'FL': ['FL_shoulder_joint', 'FL_thigh_joint', 'FL_calf_joint'],
                 'FR': ['FR_shoulder_joint', 'FR_thigh_joint', 'FR_calf_joint'],
