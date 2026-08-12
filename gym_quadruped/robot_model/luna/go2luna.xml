@@ -57,14 +57,14 @@
         <mesh file="assets/base_4.obj"/>
         <mesh file="assets/hip_0.obj"/>
         <mesh file="assets/hip_1.obj"/>
-        <mesh file="assets/thigh_0.obj"/>
-        <mesh file="assets/thigh_1.obj"/>
-        <mesh file="assets/thigh_mirror_0.obj"/>
-        <mesh file="assets/thigh_mirror_1.obj"/>
-        <mesh file="assets/calf_0.obj"/>
-        <mesh file="assets/calf_1.obj"/>
-        <mesh file="assets/calf_mirror_0.obj"/>
-        <mesh file="assets/calf_mirror_1.obj"/>
+        <mesh scale="1 1 0.8" file="assets/thigh_0.obj"/>
+        <mesh scale="1 1 0.8" file="assets/thigh_1.obj"/>
+        <mesh scale="1 1 0.8" file="assets/thigh_mirror_0.obj"/>
+        <mesh scale="1 1 0.8" file="assets/thigh_mirror_1.obj"/>
+        <mesh scale="1 1 0.8" file="assets/calf_0.obj"/>
+        <mesh scale="1 1 0.8" file="assets/calf_1.obj"/>
+        <mesh scale="1 1 0.8" file="assets/calf_mirror_0.obj"/>
+        <mesh scale="1 1 0.8" file="assets/calf_mirror_1.obj"/>
         <mesh file="assets/foot.obj"/>
 
 
@@ -106,7 +106,7 @@
                     <geom mesh="thigh_1" material="gray" class="visual"/>
                     <geom size="0.1065 0.01225 0.017" pos="0 0 -0.1065" quat="0.707107 0 0.707107 0" type="box"
                           class="collision"/>
-                    <body name="FL_calf" pos="0 0 -0.18">
+                    <body name="FL_calf" pos="0 0 -0.17">
                         <inertial pos="0.00629595 0.000622121 -0.075" quat="0.703508 -0.00450087 0.00154099 0.710672"
                                   mass="0.136" diaginertia="0.0014901 0.00146356 5.31397e-05"/>
                         <joint name="FL_calf_joint" class="knee"/>
@@ -116,7 +116,7 @@
                               class="collision"/>
                         <geom size="0.011 0.0325" pos="0.02 0 -0.148" quat="0.999688 0 0.0249974 0" type="cylinder"
                               class="collision"/>
-                        <geom pos="0 0 -0.18" mesh="foot" class="visual" material="black"/>
+                        <geom pos="0 0 -0.17" mesh="foot" class="visual" material="black"/>
                         <geom name="FL_foot_collision" class="foot"/>
                     </body>
                 </body>
@@ -136,7 +136,7 @@
                     <geom mesh="thigh_mirror_1" material="gray" class="visual"/>
                     <geom size="0.1065 0.01225 0.017" pos="0 0 -0.1065" quat="0.707107 0 0.707107 0" type="box"
                           class="collision"/>
-                    <body name="FR_calf" pos="0 0 -0.18">
+                    <body name="FR_calf" pos="0 0 -0.17">
                         <inertial pos="0.00629595 0.000622121 -0.075" quat="0.703508 -0.00450087 0.00154099 0.710672"
                                   mass="0.136" diaginertia="0.0014901 0.00146356 5.31397e-05"/>
                         <joint name="FR_calf_joint" class="knee_mirrored" axis="0 -1 0"/>
@@ -146,7 +146,7 @@
                               class="collision"/>
                         <geom size="0.011 0.0325" pos="0.02 0 -0.148" quat="0.999688 0 0.0249974 0" type="cylinder"
                               class="collision"/>
-                        <geom pos="0 0 -0.18" mesh="foot" class="visual" material="black"/>
+                        <geom pos="0 0 -0.17" mesh="foot" class="visual" material="black"/>
                         <geom name="FR_foot_collision" class="foot"/>
                     </body>
                 </body>
@@ -166,7 +166,7 @@
                     <geom mesh="thigh_1" material="gray" class="visual"/>
                     <geom size="0.1065 0.01225 0.017" pos="0 0 -0.1065" quat="0.707107 0 0.707107 0" type="box"
                           class="collision"/>
-                    <body name="BL_calf" pos="0 0 -0.18">
+                    <body name="BL_calf" pos="0 0 -0.17">
                         <inertial pos="0.00629595 0.000622121 -0.075" quat="0.703508 -0.00450087 0.00154099 0.710672"
                                   mass="0.136" diaginertia="0.0014901 0.00146356 5.31397e-05"/>
                         <joint name="BL_calf_joint" class="knee"/>
@@ -176,7 +176,7 @@
                               class="collision"/>
                         <geom size="0.011 0.0325" pos="0.02 0 -0.148" quat="0.999688 0 0.0249974 0" type="cylinder"
                               class="collision"/>
-                        <geom pos="0 0 -0.18" mesh="foot" class="visual" material="black"/>
+                        <geom pos="0 0 -0.17" mesh="foot" class="visual" material="black"/>
                         <geom name="BL_foot_collision" class="foot"/>
                     </body>
                 </body>
@@ -196,7 +196,7 @@
                     <geom mesh="thigh_mirror_1" material="gray" class="visual"/>
                     <geom size="0.1065 0.01225 0.017" pos="0 0 -0.1065" quat="0.707107 0 0.707107 0" type="box"
                           class="collision"/>
-                    <body name="BR_calf" pos="0 0 -0.18">
+                    <body name="BR_calf" pos="0 0 -0.17">
                         <inertial pos="0.00629595 0.000622121 -0.075" quat="0.703508 -0.00450087 0.00154099 0.710672"
                                   mass="0.136" diaginertia="0.0014901 0.00146356 5.31397e-05"/>
                         <joint name="BR_calf_joint" class="knee_mirrored" axis="0 -1 0"/>
@@ -206,7 +206,7 @@
                               class="collision"/>
                         <geom size="0.011 0.0325" pos="0.02 0 -0.148" quat="0.999688 0 0.0249974 0" type="cylinder"
                               class="collision"/>
-                        <geom pos="0 0 -0.18" mesh="foot" class="visual" material="black"/>
+                        <geom pos="0 0 -0.17" mesh="foot" class="visual" material="black"/>
                         <geom name="BR_foot_collision" class="foot"/>
                     </body>
                 </body>
